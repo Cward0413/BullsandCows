@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>$Title$</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+
+<nav>
+    <ul id="tabs" class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" href="#start-tab" id="starNav"></a></li>
+        <li class="nav-item"><a class="nav-link" href="#game-tab" id="gameNav"></a></li>
+        <li class="nav-item"><a class="nav-link" href="#rules-tab" id="rulesNav"></a></li>
+    </ul>
+</nav>
+
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4 backdrop">
+                    <div id="game-tab" class="tab-content">
+                        <div class="tab-pane active">
+                            <h1>Bulls and Cows</h1>
+                            <h3>Guesses:</h3>
+                            <div class="row" id="guessBox">
+                                <div id="userGuesses"></div>
+                            </div>
+                            <div class="row spacer">
+                                <form id="userInput">
+                                    <div class="form-group">
+                                        <label for="userNumber" id="guessLabel">Enter a 4 digit number<input name="userNumber" type="number" id="userNumber"></label>
+                                    </div>
+                                    <button id="guess" class="btn btn-primary">Guess!</button>
+                                </form>
+                            </div>
+                            <hr>
+                            <div class="row spacer">
+                                <div class="col">
+                                    <button id="rules" class="btn btn-primary">Rules</button>
+                                </div>
+                                <div class="col">
+                                    <button id="nGame" class="btn btn-primary">New Game</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="start-tab" class="tab-pane">
+                            <h2>Welcome to Bulls and Cows!</h2>
+                            <p>Please read the rules below before playing.</p>
+                            <p>To win, you must guess the random 4 digit number.</p>
+                            <ul id="ruleList">
+                                <li>Enter a 4 digit number</li>
+                                <li>The number can only contain digits 1 - 9 </li>
+                                <li>The number cannot contain any duplicate digits</li>
+                            </ul>
+                            <button id="startButton" class="btn btn-primary">Start!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="main.js"></script>
+
+</html>

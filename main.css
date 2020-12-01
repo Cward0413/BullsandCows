@@ -1,0 +1,68 @@
+body{
+    background-image: url("cow.jpg");
+    background-size: cover;
+}
+hr{
+    border-top: 1px solid black;
+}
+nav{
+    visibility: hidden;
+}
+#guessBox{
+    height: 500px;
+    width: 90%;
+    border: 2px solid darkgrey;
+    z-index: -1;
+    margin-left: 20px;
+}
+#cover {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+#cover-caption {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.backdrop:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.7);
+    z-index: -1;
+    border-radius: 10px;
+}
+.container{
+    margin-right: 75%;
+    height:75%
+}
+.guessOutput{
+    text-align: left; !important;
+    margin-left: 20px;
+}
+.spacer{
+    margin: 10px;
+}
+#guess{
+    margin-top: 0px;
+    margin-left: 25px;
+}
+#rules{
+    padding-right: 30px;
+    padding-left: 30px;
+}
+#guessLabel{
+    margin-left: 15px;
+}
+#userNumber{
+    margin-left: 10px;
+}
+#ruleList{
+    text-align: left;
+}
