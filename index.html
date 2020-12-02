@@ -14,7 +14,7 @@
 
 <nav>
     <ul id="tabs" class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" href="#start-tab" id="starNav"></a></li>
+        <li class="nav-item"><a class="nav-link active" href="#start-tab" id="startNav"></a></li>
         <li class="nav-item"><a class="nav-link" href="#game-tab" id="gameNav"></a></li>
         <li class="nav-item"><a class="nav-link" href="#rules-tab" id="rulesNav"></a></li>
     </ul>
@@ -25,8 +25,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4 backdrop">
-                    <div id="game-tab" class="tab-content">
-                        <div class="tab-pane active">
+                    <div class="tab-content">
+                        <div id="game-tab" class="tab-pane">
                             <h1>Bulls and Cows</h1>
                             <h3>Guesses:</h3>
                             <div class="row" id="guessBox">
@@ -43,23 +43,34 @@
                             <hr>
                             <div class="row spacer">
                                 <div class="col">
-                                    <button id="rules" class="btn btn-primary">Rules</button>
+                                    <button id="rulesButton" class="btn btn-primary">Rules</button>
                                 </div>
                                 <div class="col">
                                     <button id="nGame" class="btn btn-primary">New Game</button>
                                 </div>
                             </div>
                         </div>
-                        <div id="start-tab" class="tab-pane">
+                        <div id="start-tab" class="tab-pane active">
                             <h2>Welcome to Bulls and Cows!</h2>
                             <p>Please read the rules below before playing.</p>
                             <p>To win, you must guess the random 4 digit number.</p>
-                            <ul id="ruleList">
+                            <ul class="ruleList">
                                 <li>Enter a 4 digit number</li>
                                 <li>The number can only contain digits 1 - 9 </li>
                                 <li>The number cannot contain any duplicate digits</li>
                             </ul>
                             <button id="startButton" class="btn btn-primary">Start!</button>
+                        </div>
+                        <div id="rules-tab" class="tab-pane">
+                            <h2>Welcome to Bulls and Cows!</h2>
+                            <p>Please read the rules below before playing.</p>
+                            <p>To win, you must guess the random 4 digit number.</p>
+                            <ul class="ruleList">
+                                <li>Enter a 4 digit number</li>
+                                <li>The number can only contain digits 1 - 9 </li>
+                                <li>The number cannot contain any duplicate digits</li>
+                            </ul>
+                            <button id="backButton" class="btn btn-primary">Back</button>
                         </div>
                     </div>
                 </div>
@@ -74,6 +85,7 @@
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="main.js"></script>
 
 </html>

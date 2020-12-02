@@ -29,32 +29,52 @@ $(document).ready(
 
         //add event handlers
         $("#nGame").click(newGame);
-        $("#startButton").click(startGame)
+        $("#startButton").click(startGame);
+        $("#rulesButton").click(viewRules);
+        $("#backButton").click(viewGame);
 
         //all other functions (program logic)
-        var randomNum = 0;
-        var ranSet = '';
-
-
         function startGame(){
-            event.preventDefault()
+            event.preventDefault();
+            $("#gameNav").tab("show");
+            newGame();
+        }
+
+        function viewRules(){
+            event.preventDefault();
+            $("#rulesNav").tab("show");
+        }
+
+        function viewGame(){
+            event.preventDefault();
             $("#gameNav").tab("show");
         }
+
+        var randomNum = 0;
+        var ranSet = '';
 
         function newGame(){
             //clear the guess list and generate a new number
             $("#userGuesses").empty();
-            var duplicates = true;
 
-            //generate a number until there are no duplicates
-            while(duplicates) {
+            //generate a number until there are no duplicates. Check for 0s
+            var goodNumber = false;
+            while(!goodNumber){
+                var duplicates = true;
+                var illegalDigits = true;
+
                 randomNum = Math.floor(Math.random() * (9999 - 1000)) + 1000;
-
                 var ranArray = randomNum.toString().split('');
                 ranSet = new Set(ranArray);
 
                 if(ranSet.size == ranArray.length){
                     duplicates = false;
+                }
+                if(!ranArray.includes("0")){
+                    illegalDigits = false;
+                }
+                if(!illegalDigits && !duplicates){
+                    goodNumber = true;
                 }
             }
         }
@@ -76,7 +96,6 @@ $(document).ready(
             if(userSet.size != userArray.length){
                 userDuplicate = true;
             }
-
             for(i=0;i<userArray.length;i++){
                 var userInt = userArray[i];
                 for(j=0;j<answerArray.length;j++){
@@ -89,11 +108,20 @@ $(document).ready(
                 }
             }
 
+            //check for zeroes in users guess
+            var userZeroes = false;
+            if(userArray.includes("0")){
+                userZeroes = true;
+            }
+
             //output users guess or win statement depending on guess
             if(userDuplicate){
                 $("#userGuesses").append("<p class='guessOutput'>Please enter a value with no duplicate numbers.</p>");
             }
-            if(!userDuplicate && userNum != randomNum){
+            if(userZeroes){
+                $("#userGuesses").append("<p class='guessOutput'>Please enter a digit 1-9</p>")
+            }
+            if(!userDuplicate && !userZeroes && userNum != randomNum){
                 $("#userGuesses").append("<p class='guessOutput'>Guess " + guessNum + ": " + userNum + " | 🐄: " + cows + " | 🐂: " + bulls + ".</p>");
                 guessNum++;
             }
